@@ -13,4 +13,11 @@ Founded in 2013, Bellabeat is a high-tech company with a global presence, specia
 * Urška Sršen and Sandro Mur, co-founders and Chief Creative Officers of Bellabeat.
 * Bellabeat’s marketing analytics team.
 
+<br>
+<br>
+This project will follow the 6 steps data analysis process to address the business objectives: 
+
+Ask -> Prepare > Process > Analyze > Share > Act
+<br>
+
 
