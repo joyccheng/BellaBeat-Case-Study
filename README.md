@@ -10,7 +10,6 @@ The co-founders of Bellabeat have asked the marketing analytics team to help ide
 
 <br>
 Note: This data analysis will be conducted using R and will follow the 6 steps data analysis process to address the business objectives: 
-
 Ask > Prepare > Process > Analyze > Share > Act
 <br>
 
