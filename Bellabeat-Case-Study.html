@@ -358,31 +358,34 @@ display: none;
 
 <div id="TOC">
 <ul>
-<li><a href="#background" id="toc-background">Background</a></li>
-<li><a href="#data-preparation" id="toc-data-preparation">Data
-Preparation</a></li>
-<li><a href="#data-processing" id="toc-data-processing">Data
-Processing</a></li>
-<li><a href="#data-exploration-visualization" id="toc-data-exploration-visualization">Data Exploration &amp;
-Visualization</a></li>
-<li><a href="#conclusion-recommendations" id="toc-conclusion-recommendations">Conclusion &amp;
-Recommendations</a></li>
+<li><a href="#defining-problem-ask" id="toc-defining-problem-ask">Defining Problem [Ask]</a></li>
+<li><a href="#data-preparation-prepare" id="toc-data-preparation-prepare">Data Preparation [Prepare]</a></li>
+<li><a href="#data-processing-process" id="toc-data-processing-process">Data Processing [Process]</a></li>
+<li><a href="#data-exploration-viz-analyze-share" id="toc-data-exploration-viz-analyze-share">Data Exploration &amp; Viz
+[Analyze &amp; Share]</a></li>
+<li><a href="#conclusion-recommendations-act" id="toc-conclusion-recommendations-act">Conclusion &amp; Recommendations
+[Act]</a></li>
 </ul>
 </div>
 
-<div id="background" class="section level3">
-<h3>Background</h3>
-<p>Bellabeat, founded in 2013 and has been expanding worldwide, is a
-high-tech company that manufactures health-focused smart products aim to
-improve women’s health. The Bellabeat app focuses on collecting data on
-activity, sleep, stress, and reproductive health, allowing subscribers
-to be knowledgeable of their own health and habits and help guide make
-healthier decisions. The app connects to its own products: Leaf, Time,
-and Spring. The company currently utilizes traditional advertising media
-while also focusing on digital channels including Google paid search,
-social media, Youtube video ads, etc. They would like to understand how
-users interact with smart-devices and how they can make informed
-marketing decisions.</p>
+<p><br></p>
+<div id="defining-problem-ask" class="section level3">
+<h3>Defining Problem [Ask]</h3>
+<div id="background" class="section level4">
+<h4>Background</h4>
+<p>Bellabeat, founded in 2013, is a high-tech company with a global
+presence, specializing in manufacturing health-focused smart products
+designed to enhance women’s health. The Bellabeat app is dedicated to
+gathering data on activity, sleep, stress, and reproductive health,
+empowering users to gain insights into their health and habits, thereby
+aiding them in making healthier choices. The app is integrated with
+Bellabeat’s wearable health tracking devices, including Leaf, Time, and
+Spring. In terms of marketing strategies, the company prioritizes
+digital channels such as media advertising, paid search, social media
+platforms, and YouTube. The co-founders of Bellabeat have requested an
+understanding of how users interact with smart devices and intend to
+leverage this understanding to make informed marketing decisions.</p>
+</div>
 <div id="business-objectives" class="section level4">
 <h4>Business Objectives</h4>
 <ol style="list-style-type: decimal">
@@ -391,6 +394,14 @@ smart-devices.</li>
 <li>Provide high-level recommendations to help guide marketing
 strategy.</li>
 </ol>
+<p>Questions to address:</p>
+<ul>
+<li>What are some trends in smart device usage? How do consumers use
+their device?</li>
+<li>How could these trends apply to Bellabeat customers?</li>
+<li>How could these trends help influence Bellabeat marketing
+strategy?</li>
+</ul>
 </div>
 <div id="key-stakeholders" class="section level4">
 <h4>Key Stakeholders</h4>
@@ -402,10 +413,10 @@ Bellabeat.</li>
 <p><br></p>
 </div>
 </div>
-<div id="data-preparation" class="section level3">
-<h3>Data Preparation</h3>
-<div id="data-sources-used" class="section level4">
-<h4>Data sources used</h4>
+<div id="data-preparation-prepare" class="section level3">
+<h3>Data Preparation [Prepare]</h3>
+<div id="data-sources" class="section level4">
+<h4>Data sources</h4>
 <p>Fitbit Fitness Tracker Data (“Fitabase Data 4.12.16-5.12.16”)
 downloaded from Mobius in Kaggle, an open-source data provided by a
 third party.</p>
@@ -419,8 +430,8 @@ sleep monitoring.</li>
 different aspect of vital health indicators tracked by Fitbit.</li>
 </ul>
 </div>
-<div id="data-credibility-and-integrity" class="section level4">
-<h4>Data credibility and Integrity</h4>
+<div id="data-integrity-limitations" class="section level4">
+<h4>Data Integrity &amp; Limitations</h4>
 <p>Dataset is verified by Kaggle with a usability and credibility score
 of 10.0 and it is under the CC0: Public Domain license meaning the
 creator has waived his right to the work under the copyright law.
@@ -444,20 +455,50 @@ as “METs” and “value” in sleep related data.</li>
 <p><br></p>
 </div>
 </div>
-<div id="data-processing" class="section level3">
-<h3>Data Processing</h3>
-<div id="tools-decided-to-use" class="section level4">
-<h4>Tools decided to use</h4>
-<p>I will be using R to conduct my analysis given its accessibility and
-the abundant choices of packages that are available for data cleaning,
-organizing, performing calculations, and creating powerful data viz.</p>
+<div id="data-processing-process" class="section level3">
+<h3>Data Processing [Process]</h3>
+<div id="tool-used-for-analysis" class="section level4">
+<h4>Tool used for analysis</h4>
+<p>I will be using R to conduct my analysis, given its accessibility and
+the abundance of packages available for data cleaning, organization,
+calculation, and creating powerful data visualizations.</p>
 </div>
-<div id="documentation-of-data-cleaning-or-manipulation-process" class="section level4">
-<h4>Documentation of data cleaning or manipulation process</h4>
-<p>Data cleaning technique used in this analysis includes: pre-checking
-datasets, find duplicates and missing values, merging tables, and verify
-datatypes. Below is a detailed breakdown of the steps I took for
-ensuring data integrity before proceeding to the analyze phase:</p>
+<div id="data-cleaning-process" class="section level4">
+<h4>Data cleaning process</h4>
+<p>The data cleaning techniques utilized in this analysis include
+pre-checking datasets, identifying duplicates and missing values,
+merging tables, and verifying datatypes. Below is a brief breakdown of
+the steps taken to ensure data integrity before proceeding to the data
+transformation and analysis phase:</p>
+<ol style="list-style-type: decimal">
+<li>Upload the zip file to RStudio files and rename the folder to
+Fitabase_Data_2016 for better readability in the code and to avoid
+errors.</li>
+<li>Pre-check the data: take time to review all the CSV files.
+<ul>
+<li>Utilize <code>glimpse()</code>, <code>str()</code>, and
+<code>head()</code> to understand the total number of variables, data
+types stored, and context of each dataset.</li>
+<li>Check the number of unique IDs in each table.</li>
+</ul></li>
+<li>Select the datasets needed for the analysis and use
+<code>read.csv()</code> to import them into the R script, storing them
+into new variables.</li>
+<li>Identify any errors, misspellings, null values, or duplicates that
+may affect data integrity and perform data cleaning and reorganization
+where necessary:
+<ul>
+<li>No typos or errors were found, but 65 missing values were detected
+in the <code>weightLogInfo_merged</code> table.</li>
+<li>The <code>dailyActivity_merged</code> table appears to already
+combine data from the <code>dailyCalories_merged</code>,
+<code>dailyIntensities_merged</code>, and <code>dailySteps_merged</code>
+tables. To confirm this observation, a <code>full_join()</code> was used
+to compare values and row counts.</li>
+<li>Remove duplicates found in the <code>dailySleep_merged</code>
+dataset. <br></li>
+</ul></li>
+</ol>
 <div id="install-packages" class="section level5">
 <h5>&gt; Install packages</h5>
 <pre class="r"><code>install.packages(&quot;tidyverse&quot;)</code></pre>
@@ -595,9 +636,8 @@ sum(duplicated(daily_sleep)) ## found 3 duplicates</code></pre>
 sum(duplicated(df_weight))</code></pre>
 <pre><code>## [1] 0</code></pre>
 </div>
-</div>
-<div id="check-remove-duplicate-values" class="section level4">
-<h4>&gt; Check &amp; remove duplicate values</h4>
+<div id="check-remove-duplicate-values" class="section level5">
+<h5>&gt; Check &amp; remove duplicate values</h5>
 <pre class="r"><code>##call out all duplicate rows
 daily_sleep[duplicated(daily_sleep), ]</code></pre>
 <pre><code>##             Id              SleepDay TotalSleepRecords TotalMinutesAsleep
@@ -623,11 +663,11 @@ patterns within them.</p>
 data where needed.</p>
 </div>
 </div>
-<div id="data-exploration-visualization" class="section level3">
-<h3>Data Exploration &amp; Visualization</h3>
-<p>** Analyze &amp; Share **</p>
-<div id="transform-data" class="section level4">
-<h4>&gt; Transform data</h4>
+</div>
+<div id="data-exploration-viz-analyze-share" class="section level3">
+<h3>Data Exploration &amp; Viz [Analyze &amp; Share]</h3>
+<div id="transform-data" class="section level5">
+<h5>&gt; Transform data</h5>
 <p>First, I noticed that the format of the datetime values across tables
 are inconsistent, so I will need to convert all datetime values to the
 same format (yyyy-mm-dd) and split the values into “Date” and “Time”.
@@ -681,8 +721,8 @@ str(df_daily) </code></pre>
 ##  $ TotalMinutesAsleep      : int  327 384 NA 412 340 700 NA 304 360 325 ...
 ##  $ TotalTimeInBed          : int  346 407 NA 442 367 712 NA 320 377 364 ...</code></pre>
 </div>
-<div id="merge-data" class="section level4">
-<h4>&gt; Merge data</h4>
+<div id="merge-data" class="section level5">
+<h5>&gt; Merge data</h5>
 <p>Then, merge all the hourly data together into one (intensity, steps,
 calories):</p>
 <pre class="r"><code>df_hourly &lt;- hourly_intensity %&gt;%  
@@ -707,8 +747,8 @@ glimpse(df_hourly)</code></pre>
 ## $ StepTotal        &lt;int&gt; 373, 160, 151, 0, 0, 0, 0, 0, 250, 1864, 676, 360, 25…
 ## $ Calories         &lt;int&gt; 81, 61, 59, 47, 48, 48, 48, 47, 68, 141, 99, 76, 73, …</code></pre>
 </div>
-<div id="summarize-data" class="section level4">
-<h4>&gt; Summarize data</h4>
+<div id="summarize-data" class="section level5">
+<h5>&gt; Summarize data</h5>
 <pre class="r"><code>df_daily %&gt;%
   #adding new column to calculate sleep efficiency
   mutate(SleepEfficiency = (TotalMinutesAsleep/TotalTimeInBed)*100) %&gt;% 
@@ -770,10 +810,12 @@ calories.</li>
 than 85% which is considered quality sleep by the National Sleep
 Foundation. <a href="https://www.thensf.org/what-is-sleep-quality/" class="uri">https://www.thensf.org/what-is-sleep-quality/</a></li>
 </ol>
-<p><br></p>
+<p><br> After reviewing the summary of the variables, I decided to delve
+deeper and search for patterns that would provide further insights into
+user behaviors. <br></p>
 </div>
 <div id="explore-user-behavior-patterns" class="section level4">
-<h4>&gt; Explore user behavior patterns</h4>
+<h4>Explore user behavior patterns</h4>
 <ol style="list-style-type: decimal">
 <li>Average calories burned by hour.</li>
 <li>Average steps during the week.</li>
@@ -781,10 +823,9 @@ Foundation. <a href="https://www.thensf.org/what-is-sleep-quality/" class="uri">
 <li>Average time spent in bed and asleep by day.</li>
 <li>Usage frequency by daily logs.</li>
 </ol>
-</div>
-<div id="user-behavior-1---average-calories-burned-by-day-and-hour." class="section level4">
-<h4>&gt;&gt; User behavior #1 - Average calories burned by day and
-hour.</h4>
+<div id="user-behavior-1---average-calories-burned-by-day-and-hour." class="section level5">
+<h5>&gt;&gt; User behavior #1 - Average calories burned by day and
+hour.</h5>
 <pre class="r"><code>#calculate the average calories burned for each unique day and hour combination,
 #as well as the average for each hour. 
 avg_calories_by_hour &lt;- df_hourly %&gt;% 
@@ -827,8 +868,8 @@ having meals or going out. Midnight hours from 12am-4am which is most
 likely to be people’s sleeping time is when they tend to be burning less
 calories. <br></p>
 </div>
-<div id="user-behavior-2---average-steps-during-the-week." class="section level4">
-<h4>&gt;&gt; User behavior #2 - Average steps during the week.</h4>
+<div id="user-behavior-2---average-steps-during-the-week." class="section level5">
+<h5>&gt;&gt; User behavior #2 - Average steps during the week.</h5>
 <pre class="r"><code>#calculate the average steps by hour
 avg_steps_by_hour &lt;- df_hourly %&gt;% 
   group_by(Weekday, Hour) %&gt;% 
@@ -865,9 +906,9 @@ noon. Saturday seems to be generally more active throughout the day than
 Sunday.<br />
 <br></p>
 </div>
-<div id="user-behavior-3---average-activity-intensity-during-the-week." class="section level4">
-<h4>&gt;&gt; User behavior #3 - Average activity intensity during the
-week.</h4>
+<div id="user-behavior-3---average-activity-intensity-during-the-week." class="section level5">
+<h5>&gt;&gt; User behavior #3 - Average activity intensity during the
+week.</h5>
 <pre class="r"><code>#calculate the average for each activity intensity time by weekday
 avg_intensity_by_week &lt;- df_daily %&gt;% 
   group_by(Weekday) %&gt;% 
@@ -905,9 +946,9 @@ routines or motivations for exercise on these specific days. However,
 the graphs also show that Monday tends to have the longest sedentary
 time of the week. <br></p>
 </div>
-<div id="user-behavior-4---average-time-spent-in-bed-and-asleep-by-day." class="section level4">
-<h4>&gt;&gt; User behavior #4 - Average time spent in bed and asleep by
-day.</h4>
+<div id="user-behavior-4---average-time-spent-in-bed-and-asleep-by-day." class="section level5">
+<h5>&gt;&gt; User behavior #4 - Average time spent in bed and asleep by
+day.</h5>
 <pre class="r"><code>#calculate the average time spent in bed by weekday
 avg_bed_time &lt;- df_sleep %&gt;% 
   group_by(Weekday = wday(SleepDate, label=TRUE, abbr=FALSE)) %&gt;% 
@@ -953,9 +994,9 @@ However, Sunday shows a slightly lower rate. Additionally, it’s
 interestingly notable that users generally sleep longer on Wednesday and
 Sunday but less on Thursday and Tuesday. <br></p>
 </div>
-<div id="user-behavior-5---usage-frequency-in-a-month-by-daily-logs." class="section level4">
-<h4>&gt;&gt; User behavior #5 - Usage frequency in a month by daily
-logs.</h4>
+<div id="user-behavior-5---usage-frequency-in-a-month-by-daily-logs." class="section level5">
+<h5>&gt;&gt; User behavior #5 - Usage frequency in a month by daily
+logs.</h5>
 <pre class="r"><code>#count how many users logged data each day by unique ids. 
 count_daily_users &lt;- df_daily %&gt;% 
   group_by(ActivityDate) %&gt;% 
@@ -980,18 +1021,18 @@ This could suggest a potential trend of decreasing user engagement or
 participation in a month.</p>
 <p><br></p>
 </div>
+</div>
 <div id="finding-correlation-with-hypothesis" class="section level4">
-<h4>&gt; Finding Correlation With Hypothesis</h4>
+<h4>Finding Correlation With Hypothesis</h4>
 <ol style="list-style-type: decimal">
 <li>Does more total active minutes/steps means more calories
 burned?</li>
 <li>Does active minutes/steps/calories lead to better sleep?</li>
 <li>Does higher intensity minutes lead to quality sleep? <br></li>
 </ol>
-</div>
-<div id="test-1---total-active-minutesdaily-steps-vs.-calories" class="section level4">
-<h4>&gt;&gt; Test #1 - total active minutes/daily steps
-vs. calories</h4>
+<div id="test-1---total-active-minutesdaily-steps-vs.-calories" class="section level5">
+<h5>&gt;&gt; Test #1 - total active minutes/daily steps
+vs. calories</h5>
 <pre class="r"><code>#Add a new column to calculate the total active minutes. 
 df_daily&lt;- df_daily %&gt;%
   mutate(total_active_min = 
@@ -1038,8 +1079,8 @@ ggarrange(p1, p2)</code></pre>
 positive correlation, indicating that the more active we are or the more
 steps we walk, the more calories we tend to burn in a day. <br></p>
 </div>
-<div id="test-2---daily-steps-vs.-sleep" class="section level4">
-<h4>&gt;&gt; Test #2 - Daily steps vs. Sleep</h4>
+<div id="test-2---daily-steps-vs.-sleep" class="section level5">
+<h5>&gt;&gt; Test #2 - Daily steps vs. Sleep</h5>
 <p>See if having more total steps in a day will lead to more total
 asleep time using scatter plot.</p>
 <pre class="r"><code>p4 &lt;- df_daily %&gt;%
@@ -1082,8 +1123,8 @@ expenditure with the amount of sleep. Therefore, we cannot conclude that
 having more steps, longer activity minutes, or burning more calories in
 the day will guarantee a better sleep for the night. <br></p>
 </div>
-<div id="test-3---intensity-vs.-sleep" class="section level4">
-<h4>&gt;&gt; Test #3 - Intensity vs. Sleep</h4>
+<div id="test-3---intensity-vs.-sleep" class="section level5">
+<h5>&gt;&gt; Test #3 - Intensity vs. Sleep</h5>
 <p>See if having more “very active” minutes will lead to better quality
 of sleep.</p>
 <pre class="r"><code>#calculate the average for each activity intensity time by weekday
@@ -1115,8 +1156,9 @@ line (R=-0.6) in the chart for sedentary time and sleep. This indicates
 that as sedentary time increases, sleep time tends to decrease.</p>
 </div>
 </div>
-<div id="conclusion-recommendations" class="section level3">
-<h3>Conclusion &amp; Recommendations</h3>
+</div>
+<div id="conclusion-recommendations-act" class="section level3">
+<h3>Conclusion &amp; Recommendations [Act]</h3>
 <div id="key-findings-from-analysis" class="section level4">
 <h4>Key Findings from analysis</h4>
 <ul>
