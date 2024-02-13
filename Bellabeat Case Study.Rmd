@@ -8,22 +8,24 @@ output:
     toc_depth: 3
     theme: cerulean
 ---
-<br>
+##### ------------------------
 
-### Defining Problem [Ask]
+### Define Problem [Ask]
 
 #### Background
 Bellabeat, founded in 2013, is a high-tech company with a global presence, specializing in manufacturing health-focused smart products designed to enhance women’s health. The Bellabeat app is dedicated to gathering data on activity, sleep, stress, and reproductive health, empowering users to gain insights into their health and habits, thereby aiding them in making healthier choices. The app is integrated with Bellabeat's wearable health tracking devices, including Leaf, Time, and Spring. In terms of marketing strategies, the company prioritizes digital channels such as media advertising, paid search, social media platforms, and YouTube. The co-founders of Bellabeat have requested an understanding of how users interact with smart devices and intend to leverage this understanding to make informed marketing decisions.
+<br>
 
 #### Business Objectives
 1. Find out trends on how consumers uses non-Bellabeat smart-devices. 
 2. Provide high-level recommendations to help guide marketing strategy.
 
-Questions to address: 
+   Questions to address: 
 
-* What are some trends in smart device usage? How do consumers use their device?
-* How could these trends apply to Bellabeat customers? 
-* How could these trends help influence Bellabeat marketing strategy?
+   * What are some trends in smart device usage? How do consumers use their device?
+   * How could these trends apply to Bellabeat customers? 
+   * How could these trends help influence Bellabeat marketing strategy?
+<br>
 
 #### Key Stakeholders
   * Urška Sršen and Sando Mur, cofounders and Chief Creative Officier of Bellabeat. 
@@ -171,12 +173,13 @@ sum(duplicated(daily_sleep_cleaned))
 Considering that some datasets lack sufficient participants (size < 20) to be representative of the entire population, they may face sampling bias. Therefore, for this analysis, I will focus solely on the datasets related to Activity, Intensity, Calories, and Sleep, exploring patterns within them.
 
 Next, I will proceed to the data exploration phase and transform the data where needed.
+<br>
 
 ### Data Exploration & Viz [Analyze & Share]
 
 ##### > Transform data
 
-First, I noticed that the format of the datetime values across tables are inconsistent, so I will need to convert all datetime values to the same format (yyyy-mm-dd) and split the values into "Date" and "Time". This way, it will be easier for us to examine and merge tables later on.
+First, I noticed that the format of the datetime values across tables are inconsistent, so I will need to convert all datetime values to the same format (yyyy-mm-dd) and split the values into "Date" and "Time". This way, it will be easier for me to examine and merge tables later on.
 ```{r}
 df_sleep <- daily_sleep_cleaned %>% 
   mutate(SleepDay = mdy_hms(SleepDay),   #parse date and time
@@ -199,8 +202,8 @@ df_daily <- daily_activity %>%
 str(df_daily) 
 ```
 
-##### > Merge data
-Then, merge all the hourly data together into one (intensity, steps, calories): 
+##### > Merge dataset
+Then, create a new hourly dataset that stores all hourly tables by merging them into one (intensity, steps, calories): 
 ```{r}
 df_hourly <- hourly_intensity %>%  
   inner_join(hourly_steps, by=c("Id", "ActivityHour" )) %>% 
@@ -214,16 +217,20 @@ df_hourly <- hourly_intensity %>%
 
 glimpse(df_hourly)
 ```
+After completing the cleaning and reformatting of the required datasets, I moved on to examining the summary of the `df_daily` dataset to gain an overview of each variable and check for outliers.
 
-##### > Summarize data
+##### > Summarize dataset
 ```{r}
 df_daily %>%
   #adding new column to calculate sleep efficiency
   mutate(SleepEfficiency = (TotalMinutesAsleep/TotalTimeInBed)*100) %>% 
   #select only the variables interested to calculate summary
-  select(TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDistance, VeryActiveDistance,
-         ModeratelyActiveDistance, LightActiveDistance, SedentaryActiveDistance, VeryActiveMinutes,
-         FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes, Calories, TotalSleepRecords,
+  select(TotalSteps, TotalDistance, TrackerDistance, 
+         LoggedActivitiesDistance, VeryActiveDistance,
+         ModeratelyActiveDistance, LightActiveDistance, 
+         SedentaryActiveDistance, VeryActiveMinutes,
+         FairlyActiveMinutes, LightlyActiveMinutes, 
+         SedentaryMinutes, Calories, TotalSleepRecords,
          TotalMinutesAsleep, TotalTimeInBed, SleepEfficiency) %>%
   drop_na() %>% 
   summary()
@@ -237,8 +244,7 @@ df_daily %>%
 3. The average daily calorie burn for most participants exceeds 2000 calories.
 4. Most participants are able to sleep through the night(sleep time = 1) with an average duration of 7 hours and with sleep efficiency greater than 85% which is considered quality sleep by the National Sleep Foundation. <https://www.thensf.org/what-is-sleep-quality/>
 
-<br>
-After reviewing the summary of the variables, I decided to delve deeper and search for patterns that would provide further insights into user behaviors.
+Next, I decided to delve deeper and extract more information by performing statistical analyses and creating visualizations, aiming to uncover further insights into user behaviors and reveal underlying patterns.
 <br>
 
 #### Explore user behavior patterns

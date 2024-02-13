@@ -358,7 +358,8 @@ display: none;
 
 <div id="TOC">
 <ul>
-<li><a href="#defining-problem-ask" id="toc-defining-problem-ask">Defining Problem [Ask]</a></li>
+<li><a href="#define-problem-ask" id="toc-define-problem-ask">Define
+Problem [Ask]</a></li>
 <li><a href="#data-preparation-prepare" id="toc-data-preparation-prepare">Data Preparation [Prepare]</a></li>
 <li><a href="#data-processing-process" id="toc-data-processing-process">Data Processing [Process]</a></li>
 <li><a href="#data-exploration-viz-analyze-share" id="toc-data-exploration-viz-analyze-share">Data Exploration &amp; Viz
@@ -368,9 +369,11 @@ display: none;
 </ul>
 </div>
 
-<p><br></p>
-<div id="defining-problem-ask" class="section level3">
-<h3>Defining Problem [Ask]</h3>
+<div id="section" class="section level5">
+<h5>————————</h5>
+</div>
+<div id="define-problem-ask" class="section level3">
+<h3>Define Problem [Ask]</h3>
 <div id="background" class="section level4">
 <h4>Background</h4>
 <p>Bellabeat, founded in 2013, is a high-tech company with a global
@@ -384,24 +387,25 @@ Spring. In terms of marketing strategies, the company prioritizes
 digital channels such as media advertising, paid search, social media
 platforms, and YouTube. The co-founders of Bellabeat have requested an
 understanding of how users interact with smart devices and intend to
-leverage this understanding to make informed marketing decisions.</p>
+leverage this understanding to make informed marketing decisions.
+<br></p>
 </div>
 <div id="business-objectives" class="section level4">
 <h4>Business Objectives</h4>
 <ol style="list-style-type: decimal">
-<li>Find out trends on how consumers uses non-Bellabeat
-smart-devices.</li>
-<li>Provide high-level recommendations to help guide marketing
-strategy.</li>
-</ol>
+<li><p>Find out trends on how consumers uses non-Bellabeat
+smart-devices.</p></li>
+<li><p>Provide high-level recommendations to help guide marketing
+strategy.</p>
 <p>Questions to address:</p>
 <ul>
 <li>What are some trends in smart device usage? How do consumers use
 their device?</li>
 <li>How could these trends apply to Bellabeat customers?</li>
-<li>How could these trends help influence Bellabeat marketing
-strategy?</li>
-</ul>
+<li>How could these trends help influence Bellabeat marketing strategy?
+<br></li>
+</ul></li>
+</ol>
 </div>
 <div id="key-stakeholders" class="section level4">
 <h4>Key Stakeholders</h4>
@@ -660,7 +664,7 @@ sampling bias. Therefore, for this analysis, I will focus solely on the
 datasets related to Activity, Intensity, Calories, and Sleep, exploring
 patterns within them.</p>
 <p>Next, I will proceed to the data exploration phase and transform the
-data where needed.</p>
+data where needed. <br></p>
 </div>
 </div>
 </div>
@@ -671,7 +675,7 @@ data where needed.</p>
 <p>First, I noticed that the format of the datetime values across tables
 are inconsistent, so I will need to convert all datetime values to the
 same format (yyyy-mm-dd) and split the values into “Date” and “Time”.
-This way, it will be easier for us to examine and merge tables later
+This way, it will be easier for me to examine and merge tables later
 on.</p>
 <pre class="r"><code>df_sleep &lt;- daily_sleep_cleaned %&gt;% 
   mutate(SleepDay = mdy_hms(SleepDay),   #parse date and time
@@ -721,10 +725,10 @@ str(df_daily) </code></pre>
 ##  $ TotalMinutesAsleep      : int  327 384 NA 412 340 700 NA 304 360 325 ...
 ##  $ TotalTimeInBed          : int  346 407 NA 442 367 712 NA 320 377 364 ...</code></pre>
 </div>
-<div id="merge-data" class="section level5">
-<h5>&gt; Merge data</h5>
-<p>Then, merge all the hourly data together into one (intensity, steps,
-calories):</p>
+<div id="merge-dataset" class="section level5">
+<h5>&gt; Merge dataset</h5>
+<p>Then, create a new hourly dataset that stores all hourly tables by
+merging them into one (intensity, steps, calories):</p>
 <pre class="r"><code>df_hourly &lt;- hourly_intensity %&gt;%  
   inner_join(hourly_steps, by=c(&quot;Id&quot;, &quot;ActivityHour&quot; )) %&gt;% 
   inner_join(hourly_calories, by=c(&quot;Id&quot;, &quot;ActivityHour&quot; )) %&gt;% 
@@ -746,16 +750,23 @@ glimpse(df_hourly)</code></pre>
 ## $ AverageIntensity &lt;dbl&gt; 0.333333, 0.133333, 0.116667, 0.000000, 0.000000, 0.0…
 ## $ StepTotal        &lt;int&gt; 373, 160, 151, 0, 0, 0, 0, 0, 250, 1864, 676, 360, 25…
 ## $ Calories         &lt;int&gt; 81, 61, 59, 47, 48, 48, 48, 47, 68, 141, 99, 76, 73, …</code></pre>
+<p>After completing the cleaning and reformatting of the required
+datasets, I moved on to examining the summary of the
+<code>df_daily</code> dataset to gain an overview of each variable and
+check for outliers.</p>
 </div>
-<div id="summarize-data" class="section level5">
-<h5>&gt; Summarize data</h5>
+<div id="summarize-dataset" class="section level5">
+<h5>&gt; Summarize dataset</h5>
 <pre class="r"><code>df_daily %&gt;%
   #adding new column to calculate sleep efficiency
   mutate(SleepEfficiency = (TotalMinutesAsleep/TotalTimeInBed)*100) %&gt;% 
   #select only the variables interested to calculate summary
-  select(TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDistance, VeryActiveDistance,
-         ModeratelyActiveDistance, LightActiveDistance, SedentaryActiveDistance, VeryActiveMinutes,
-         FairlyActiveMinutes, LightlyActiveMinutes, SedentaryMinutes, Calories, TotalSleepRecords,
+  select(TotalSteps, TotalDistance, TrackerDistance, 
+         LoggedActivitiesDistance, VeryActiveDistance,
+         ModeratelyActiveDistance, LightActiveDistance, 
+         SedentaryActiveDistance, VeryActiveMinutes,
+         FairlyActiveMinutes, LightlyActiveMinutes, 
+         SedentaryMinutes, Calories, TotalSleepRecords,
          TotalMinutesAsleep, TotalTimeInBed, SleepEfficiency) %&gt;%
   drop_na() %&gt;% 
   summary()</code></pre>
@@ -810,9 +821,10 @@ calories.</li>
 than 85% which is considered quality sleep by the National Sleep
 Foundation. <a href="https://www.thensf.org/what-is-sleep-quality/" class="uri">https://www.thensf.org/what-is-sleep-quality/</a></li>
 </ol>
-<p><br> After reviewing the summary of the variables, I decided to delve
-deeper and search for patterns that would provide further insights into
-user behaviors. <br></p>
+<p>Next, I decided to delve deeper and extract more information by
+performing statistical analyses and creating visualizations, aiming to
+uncover further insights into user behaviors and reveal underlying
+patterns. <br></p>
 </div>
 <div id="explore-user-behavior-patterns" class="section level4">
 <h4>Explore user behavior patterns</h4>
