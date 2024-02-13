@@ -1,7 +1,7 @@
 # Bellabeat Case Study in R
 Capstone Project for Google Data Analytics Certificate Course \
 2024-01-01 \
-Click [here](https://htmlpreview.github.io/?) to preview the Rmarkdown file in HTML. 
+Click [HERE](https://htmlpreview.github.io/?https://github.com/joyccheng/BellaBeat-Case-Study-in-R/blob/main/Bellabeat-Case-Study.html) to preview the Rmarkdown file in HTML. 
 
 ### Introduction
 Founded in 2013, Bellabeat is a high-tech company with a global presence, specializing in manufacturing health-focused smart products designed to enhance women’s health. The Bellabeat app is dedicated to gathering data on activity, sleep, stress, and reproductive health, empowering users to gain insights into their health and habits, thus aiding them in making healthier choices. The app integrates with Bellabeat's product lineup, including Leaf, Time, and Spring. In terms of marketing strategies, the company prioritizes digital channels such as media advertising, paid search, social media platforms, and YouTube.
