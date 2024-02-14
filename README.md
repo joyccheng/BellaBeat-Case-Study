@@ -1,6 +1,6 @@
 # Bellabeat Case Study in R
 Capstone Project for Google Data Analytics Certificate Course \
-2024-01-01 \
+2024-01-01
 
 > [!TIP]
 > Click [**HERE**](https://htmlpreview.github.io/?https://github.com/joyccheng/BellaBeat-Case-Study-in-R/blob/main/Bellabeat-Case-Study.html) to view codes and graphs in HTML.
