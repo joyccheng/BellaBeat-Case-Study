@@ -44,13 +44,13 @@ Fitbit Fitness Tracker Data (“Fitabase Data 4.12.16-5.12.16”) downloaded fro
 
 #### Data Integrity & Limitations
 
-Dataset is verified by Kaggle with a usability and credibility score of 10.0 and it is under the CC0: Public Domain license meaning the creator has waived his right to the work under the copyright law.  However, some limitations of the Fitbit dataset were discovered: 
+The dataset has been verified by Kaggle, receiving a usability and credibility score of 10.0, and it is under the CC0: Public Domain license, which means the creator has relinquished their rights to the work under copyright law. However, several limitations of the Fitbit dataset have been identified:
 
-* **Small sample size** - Sample size of 30 users is considered a bit small that may lead to sampling bias. 
-* **Outdated Data** - the data may no longer be relevant to our lifestyles today as the survey was conducted in 2016 and the last update was made 3 years ago.
-* **Demographic information is unknown** - we cannot be sure if the sample includes users from a well distributed demographics, such as age and gender, that can be representative of the whole population. 
-Inconsistent datatype and measurements recorded may vary or be missing depending on the FitBit product used and user’s preferences.
-* **Metadata unavailable** - some termiologies used for column names may not be clear to users unfamiliar with the subject, such as “METs” and “value” in sleep related data.
+* **Small sample size** - The sample size of 30 users is considered relatively small, which may introduce sampling bias.
+* **Outdated Data** - Given that the survey was conducted in 2016 and the dataset's last update was made three years ago, the data may no longer accurately reflect current lifestyles.
+* **Unknown demographic information** - It is uncertain whether the sample includes users from diverse demographics such as age and gender, which are essential for representing the entire population.
+* **Inconsistent data types and measurements**: The recorded measurements may vary or be missing depending on the Fitbit product used and the user's preferences, leading to inconsistencies.
+* **Metadata Unavailable**: No metadata was provided to elucidate the data. As a result, some terminologies used for column names might be unclear to users unfamiliar with the subject, such as "METs" and "value" in sleep-related data.
 
 <br>
 
